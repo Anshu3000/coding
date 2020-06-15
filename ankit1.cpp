@@ -27,10 +27,11 @@ using namespace std;
    	   		
 		  }
 		 
-		 if(c!=0)
-		 { a[l]=c;
-		   l++;
-		  } 
+		while(c)
+		{ a[l]=c%10;
+		  c=c/10;
+		 l++;
+		}
    	 	
 	 }
    	
