@@ -1,43 +1,117 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<string>
 using namespace std;
 
- #define max 200
-
-
- int main()
- { int n,m,c=0;
-   cin>>n;
- 
-   int a[max]={0};
-   	
-   	a[0]=1;
-   	int l=1;
-   	 for(int i=2;i<=n;i++)
-   	 { c=0;
-   	   	for(int j=0;j<l;j++)
-   	   	{  m=a[j];
-   	   	   m=m*i+c;
-   	   	    if(m>=10)
-   	   	     {  a[j]=m%10;
-   	   	     	c=m/10;
-			  }else{
-			  	a[j]=m;
-			  	c=0;
-			  }
-   	   		
-		  }
-		 
-		while(c)
-		{ a[l]=c%10;
-		  c=c/10;
-		 l++;
-		}
-   	 	
+void roman(int n)
+{ string s="";
+	int o,p,q;
+	
+	o=n/1000;
+	
+	switch(o)
+	{
+		case 1 : s="M";
+		break;
+		 case  2 : s="MM";
+		break;
+		 case 3 :  s="MMM";
+		 break;
+	}
+	
+	o= (n%1000)/100;
+	
+	switch(o)
+	{
+		case 1 : s=s+"C";
+		          break;
+		case 2 : s=s+"CC";          
+		         break;
+		case 3 :  s=s+"CCC";
+		          break;
+        case 4 :  s=s+"CD"; 
+		            break;
+	    case 5 :   s=s+"D";
+		           break;
+	   case 6 :    s=s+"DC";
+	              break;
+		case 7 :   s=s+"DCC";
+		           break;
+		case 8 :   s=s+"DCCC";
+		         break;
+		case 9 :   s=s+"CM";
+		          break;		 		   		  			   				 				           
+	}
+	
+	
+	o=  ((n%1000)%100)/10;
+	 
+	switch(o)
+	{
+		case 1 : s=s+"X";
+		          break;
+		case 2 : s=s+"XX";
+		          break;
+		case 3 : s=s+"XXX";
+		          break;
+		case 4 : s=s+"LX";
+		          break;
+		case 5 : s=s+"L";
+		          break;
+		case 6 : s=s+"LX";
+		         break;
+		case 7 : s=s+"LXX";
+		         break;
+        case 8 : s=s+"LXXX";
+		         break;
+		case 9 : s=s+"XC";		 				 		 		  		  		  		            
+	 } 
+	
+	o= ((n%1000)%100)%10;
+	 
+	 switch(o)
+	 {
+	 	case 1 : s=s+"I";
+	 	         break;
+	 	case 2 : s=s+"II";
+		         break;
+		case 3 : s=s+"III";
+		        break;
+		case 4 : s=s+"IV" ;
+		          break;
+		case 5 : s=s+"V" ;
+		         break;
+	    case 6 : s=s+"VI";
+		         break;
+	    case 7 : s=s+"VII";
+		           break;
+	    case 8 : s=s+"VIII";
+		         break;
+		case 9 : s=s+"IX";
+		        break;
+						 			   			 			           
+		
 	 }
-   	
-   	cout<<"p\n";
- 	for(int i=l-1;i>=0;i--)
- 	 cout<<a[i];
- 	
- 	return 0;
- }
+
+ cout<<s<<"\n";	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+int main()
+{ int n;
+  cin>>n;
+   
+   roman(n);
+   
+   
+	return 0;
+}
